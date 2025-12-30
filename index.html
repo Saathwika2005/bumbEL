@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bumbEL - Find Your Perfect EL Teammate</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="floating-icon icon-black" style="--delay: 0s; --duration: 25s; --start-x: 10%; --start-y: 20%;">
+            <i class="fas fa-laptop"></i>
+        </div>
+        <div class="floating-icon icon-yellow" style="--delay: 3s; --duration: 30s; --start-x: 80%; --start-y: 15%;">
+            <i class="fas fa-handshake"></i>
+        </div>
+        <div class="floating-icon icon-black" style="--delay: 6s; --duration: 28s; --start-x: 50%; --start-y: 70%;">
+            <i class="fas fa-user-friends"></i>
+        </div>
+        <div class="floating-icon icon-yellow" style="--delay: 2s; --duration: 32s; --start-x: 25%; --start-y: 60%;">
+            <i class="fas fa-desktop"></i>
+        </div>
+        <div class="floating-icon icon-black" style="--delay: 8s; --duration: 27s; --start-x: 70%; --start-y: 50%;">
+            <i class="fas fa-hands-helping"></i>
+        </div>
+        <div class="floating-icon icon-yellow" style="--delay: 5s; --duration: 29s; --start-x: 40%; --start-y: 30%;">
+            <i class="fas fa-network-wired"></i>
+        </div>
+        <div class="floating-icon icon-black" style="--delay: 1s; --duration: 26s; --start-x: 15%; --start-y: 80%;">
+            <i class="fas fa-code"></i>
+        </div>
+        <div class="floating-icon icon-yellow" style="--delay: 7s; --duration: 31s; --start-x: 85%; --start-y: 65%;">
+            <i class="fas fa-project-diagram"></i>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <div class="logo-bee-icon">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <div class="logo-icon"><i class="fas fa-hexagon"></i></div>
+            <h1 class="logo">bumb<span class="el-text">EL</span></h1>
+        </div>
+        <nav class="nav">
+            <button class="nav-btn active" data-view="discover">
+                <span class="icon"><i class="far fa-compass"></i></span>
+                <span>Discover</span>
+            </button>
+            <button class="nav-btn" data-view="matches">
+                <span class="icon"><i class="far fa-comments"></i></span>
+                <span>Matches</span>
+                <span class="badge" id="matchCount">0</span>
+            </button>
+            <button class="nav-btn" data-view="profile">
+                <span class="icon"><i class="far fa-user"></i></span>
+                <span>Profile</span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <main class="container">
+        
+        <!-- Discover View -->
+        <section id="discoverView" class="view active-view">
+            <div class="swipe-header">
+                <h2 class="section-title">Find your perfect EL-mate!</h2>
+                <div class="filter-chips">
+                    <button class="chip active" data-filter="tech">Tech</button>
+                    <button class="chip" data-filter="design">Design</button>
+                    <button class="chip" data-filter="business">Business</button>
+                    <button class="chip" data-filter="science">Science</button>
+                </div>
+            </div>
+
+            <div class="card-stack">
+                <!-- Cards will be dynamically inserted here -->
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: var(--bumble-gray); z-index: 999;">
+                    <p>Loading profiles...</p>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="action-btn nope-btn" id="nopeBtn">
+                    <div class="btn-circle">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <span class="btn-text">Pass</span>
+                </button>
+                <button class="action-btn super-btn" id="superBtn">
+                    <div class="btn-circle">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span class="btn-text">Super</span>
+                </button>
+                <button class="action-btn like-btn" id="likeBtn">
+                    <div class="btn-circle">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <span class="btn-text">Like</span>
+                </button>
+            </div>
+
+            <div class="swipe-hint">
+                <p>← Swipe or use buttons to find teammates →</p>
+            </div>
+        </section>
+
+        <!-- Matches View -->
+        <section id="matchesView" class="view">
+            <h2 class="section-title">Your EL Matches</h2>
+            <div class="matches-grid" id="matchesGrid">
+                <div class="empty-state">
+                    <div class="empty-icon"><i class="far fa-circle-dot"></i></div>
+                    <h3>No matches yet!</h3>
+                    <p>Start swiping to find your perfect teammates</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile View -->
+        <section id="profileView" class="view">
+            <h2 class="section-title">Your Profile</h2>
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-avatar"><i class="fas fa-user-graduate"></i></div>
+                    <div class="profile-info">
+                        <h3 class="profile-name">You</h3>
+                        <p class="profile-branch">Computer Science & Engineering</p>
+                        <p class="profile-year">3rd Year</p>
+                    </div>
+                </div>
+                <div class="profile-section">
+                    <h4>Your Skills</h4>
+                    <div class="skills-container">
+                        <span class="skill-tag tech">JavaScript</span>
+                        <span class="skill-tag tech">React</span>
+                        <span class="skill-tag tech">Node.js</span>
+                        <span class="skill-tag design">UI/UX</span>
+                        <span class="skill-tag tech">Python</span>
+                    </div>
+                </div>
+                <div class="profile-section">
+                    <h4>Looking For</h4>
+                    <div class="looking-for">
+                        <span class="looking-tag">Backend Developer</span>
+                        <span class="looking-tag">ML Engineer</span>
+                        <span class="looking-tag">Designer</span>
+                    </div>
+                </div>
+                <div class="profile-section">
+                    <h4>About You</h4>
+                    <p class="profile-bio">Passionate about web development and creating innovative solutions. Looking for dedicated teammates for EL projects!</p>
+                </div>
+                <button class="edit-profile-btn">Edit Profile</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Match Notification -->
+    <div class="match-notification" id="matchNotification">
+        <div class="match-content">
+            <div class="match-header">
+                <span class="match-emoji"><i class="fas fa-check-circle"></i></span>
+                <h2>It's a Match!</h2>
+                <span class="match-emoji"><i class="fas fa-check-circle"></i></span>
+            </div>
+            <div class="match-profiles">
+                <div class="match-avatar"><i class="fas fa-user-graduate"></i></div>
+                <div class="match-heart"><i class="fas fa-heart"></i></div>
+                <div class="match-avatar matched-avatar"></div>
+            </div>
+            <p class="match-message">You and <span id="matchedName"></span> liked each other!</p>
+            <div class="match-actions">
+                <button class="match-btn send-msg-btn" id="sendMessageBtn">Send Message</button>
+                <button class="match-btn keep-swiping-btn" id="keepSwipingBtn">Keep Swiping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-container">
+            <div class="chat-header">
+                <button class="back-btn" id="backToMatches">←</button>
+                <div class="chat-user-info">
+                    <div class="chat-avatar"></div>
+                    <div>
+                        <h3 class="chat-name"></h3>
+                        <p class="chat-status">Active now</p>
+                    </div>
+                </div>
+                <button class="close-chat" id="closeChat">✕</button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-starter">
+                    <p>👋 Say hi and start planning your EL project!</p>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type a message...">
+                <button class="send-btn" id="sendBtn">
+                    <span>➤</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="edit-profile-modal" id="editProfileModal">
+        <div class="edit-profile-container">
+            <div class="edit-profile-header">
+                <h2>Edit Profile</h2>
+                <button class="close-edit-profile" id="closeEditProfile">✕</button>
+            </div>
+            <div class="edit-profile-content">
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label for="editName">Name</label>
+                        <input type="text" id="editName" class="form-input" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editBranch">Branch</label>
+                        <select id="editBranch" class="form-input" required>
+                            <option value="">Select your branch</option>
+                            <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                            <option value="Information Science & Engineering">Information Science & Engineering</option>
+                            <option value="Electronics & Communication">Electronics & Communication</option>
+                            <option value="Electrical & Electronics">Electrical & Electronics</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Biotechnology">Biotechnology</option>
+                            <option value="Industrial Engineering">Industrial Engineering</option>
+                            <option value="MBA">MBA</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="editYear">Year</label>
+                            <select id="editYear" class="form-input" required>
+                                <option value="">Select year</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="editSemester">Semester</label>
+                            <select id="editSemester" class="form-input" required>
+                                <option value="">Select semester</option>
+                                <option value="1st Sem">1st Sem</option>
+                                <option value="2nd Sem">2nd Sem</option>
+                                <option value="3rd Sem">3rd Sem</option>
+                                <option value="4th Sem">4th Sem</option>
+                                <option value="5th Sem">5th Sem</option>
+                                <option value="6th Sem">6th Sem</option>
+                                <option value="7th Sem">7th Sem</option>
+                                <option value="8th Sem">8th Sem</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Skills</label>
+                        <div class="skills-input-container">
+                            <div class="skills-selector">
+                                <input type="text" id="skillInput" class="form-input" placeholder="Type skill and press Enter">
+                                <select id="skillCategory" class="skill-category-select">
+                                    <option value="tech">Tech</option>
+                                    <option value="design">Design</option>
+                                    <option value="business">Business</option>
+                                    <option value="science">Science</option>
+                                </select>
+                                <button type="button" id="addSkillBtn" class="add-skill-btn">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="selected-skills" id="selectedSkills">
+                                <!-- Selected skills will appear here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editLookingFor">Looking For (comma-separated)</label>
+                        <input type="text" id="editLookingFor" class="form-input" placeholder="e.g., Backend Developer, ML Engineer, Designer" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editBio">About You</label>
+                        <textarea id="editBio" class="form-textarea" rows="4" placeholder="Tell others about yourself and what you're looking for in a teammate..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editInterests">Interests (comma-separated)</label>
+                        <input type="text" id="editInterests" class="form-input" placeholder="e.g., AI, Web Development, Mobile Apps">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" id="cancelEditProfile">Cancel</button>
+                        <button type="submit" class="save-profile-btn">Save Profile</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
