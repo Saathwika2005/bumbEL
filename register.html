@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - bumbEL</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #ffc629 0%, #ffda6a 100%);
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-header .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-header .logo .el-text {
+            color: #ffc629;
+        }
+
+        .auth-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .form-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-section h3 {
+            font-size: 1.1rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #ffc629;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ffc629;
+            box-shadow: 0 0 0 4px rgba(255, 198, 41, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            background: #f8f8f8;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item:hover {
+            background: #fff3d0;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.75rem;
+            accent-color: #ffc629;
+        }
+
+        .checkbox-item.checked {
+            background: #fff3d0;
+            border: 2px solid #ffc629;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .radio-item {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .radio-item input[type="radio"] {
+            display: none;
+        }
+
+        .radio-item label {
+            display: block;
+            padding: 1rem;
+            text-align: center;
+            background: #f8f8f8;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .radio-item input[type="radio"]:checked + label {
+            background: #fff3d0;
+            border-color: #ffc629;
+            font-weight: 600;
+        }
+
+        .avatar-picker {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .avatar-option {
+            width: 50px;
+            height: 50px;
+            font-size: 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 3px solid transparent;
+            background: #f8f8f8;
+        }
+
+        .avatar-option:hover {
+            transform: scale(1.1);
+        }
+
+        .avatar-option.selected {
+            border-color: #ffc629;
+            background: #fff3d0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ffc629 0%, #ffb800 100%);
+            color: #1a1a1a;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 198, 41, 0.4);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #666;
+        }
+
+        .auth-footer a {
+            color: #ffc629;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            background: #fee;
+            color: #c00;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message {
+            background: #efe;
+            color: #060;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .checkbox-group {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1 class="logo">bumb<span class="el-text">EL</span></h1>
+                <p>Create your profile and find your perfect EL-mate!</p>
+            </div>
+
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+
+            <form id="registerForm">
+                <!-- Basic Info Section -->
+                <div class="form-section">
+                    <h3><i class="fas fa-user"></i> Basic Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your name">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password *</label>
+                            <input type="password" id="password" name="password" required minlength="6" placeholder="Min 6 characters">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Choose Avatar</label>
+                        <div class="avatar-picker">
+                            <div class="avatar-option selected" data-avatar="👤">👤</div>
+                            <div class="avatar-option" data-avatar="👩‍💻">👩‍💻</div>
+                            <div class="avatar-option" data-avatar="👨‍💻">👨‍💻</div>
+                            <div class="avatar-option" data-avatar="🎨">🎨</div>
+                            <div class="avatar-option" data-avatar="🚀">🚀</div>
+                            <div class="avatar-option" data-avatar="💡">💡</div>
+                            <div class="avatar-option" data-avatar="🔬">🔬</div>
+                            <div class="avatar-option" data-avatar="📊">📊</div>
+                            <div class="avatar-option" data-avatar="🎯">🎯</div>
+                            <div class="avatar-option" data-avatar="⚡">⚡</div>
+                        </div>
+                        <input type="hidden" id="avatar" name="avatar" value="👤">
+                    </div>
+                </div>
+
+                <!-- Academic Info Section -->
+                <div class="form-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Academic Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="branch">Branch *</label>
+                            <select id="branch" name="branch" required>
+                                <option value="">Select Branch</option>
+                                <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                                <option value="Information Science & Engineering">Information Science & Engineering</option>
+                                <option value="Electronics & Communication">Electronics & Communication</option>
+                                <option value="Electrical Engineering">Electrical Engineering</option>
+                                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                                <option value="Civil Engineering">Civil Engineering</option>
+                                <option value="Chemical Engineering">Chemical Engineering</option>
+                                <option value="Biotechnology">Biotechnology</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year *</label>
+                            <select id="year" name="year" required>
+                                <option value="">Select Year</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="semester">Semester</label>
+                        <select id="semester" name="semester">
+                            <option value="">Select Semester</option>
+                            <option value="1st Sem">1st Semester</option>
+                            <option value="2nd Sem">2nd Semester</option>
+                            <option value="3rd Sem">3rd Semester</option>
+                            <option value="4th Sem">4th Semester</option>
+                            <option value="5th Sem">5th Semester</option>
+                            <option value="6th Sem">6th Semester</option>
+                            <option value="7th Sem">7th Semester</option>
+                            <option value="8th Sem">8th Semester</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Primary Category *</label>
+                        <div class="radio-group">
+                            <div class="radio-item">
+                                <input type="radio" id="cat-tech" name="category" value="Tech" required>
+                                <label for="cat-tech"><i class="fas fa-code"></i> Tech</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="cat-design" name="category" value="Design">
+                                <label for="cat-design"><i class="fas fa-palette"></i> Design</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="cat-business" name="category" value="Business">
+                                <label for="cat-business"><i class="fas fa-briefcase"></i> Business</label>
+                            </div>
+                            <div class="radio-item">
+                                <input type="radio" id="cat-science" name="category" value="Science">
+                                <label for="cat-science"><i class="fas fa-flask"></i> Science</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Section -->
+                <div class="form-section">
+                    <h3><i class="fas fa-tools"></i> Skills (Select all that apply)</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_webdev" value="1">
+                            <span>Web Development</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_frontend" value="1">
+                            <span>Frontend</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_backend" value="1">
+                            <span>Backend</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_ml" value="1">
+                            <span>Machine Learning</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_ai" value="1">
+                            <span>AI</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_data_analysis" value="1">
+                            <span>Data Analysis</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_uiux" value="1">
+                            <span>UI/UX Design</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_figma" value="1">
+                            <span>Figma</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_iot" value="1">
+                            <span>IoT</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_embedded" value="1">
+                            <span>Embedded Systems</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_mobile" value="1">
+                            <span>Mobile Development</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_cloud" value="1">
+                            <span>Cloud Computing</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_devops" value="1">
+                            <span>DevOps</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_database" value="1">
+                            <span>Database</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skill_cybersecurity" value="1">
+                            <span>Cybersecurity</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Interests Section -->
+                <div class="form-section">
+                    <h3><i class="fas fa-heart"></i> Interests (Select all that apply)</h3>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="interest_startups" value="1">
+                            <span>Startups</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="interest_research" value="1">
+                            <span>Research</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="interest_competitions" value="1">
+                            <span>Competitions</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="interest_opensource" value="1">
+                            <span>Open Source</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="interest_freelancing" value="1">
+                            <span>Freelancing</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="interest_networking" value="1">
+                            <span>Networking</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="interest_mentorship" value="1">
+                            <span>Mentorship</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="interest_hackathons" value="1">
+                            <span>Hackathons</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Experience Section -->
+                <div class="form-section">
+                    <h3><i class="fas fa-chart-line"></i> Experience Level</h3>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="exp-beginner" name="experience" value="beginner">
+                            <label for="exp-beginner">🌱 Beginner</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="exp-intermediate" name="experience" value="intermediate">
+                            <label for="exp-intermediate">🌿 Intermediate</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="exp-advanced" name="experience" value="advanced">
+                            <label for="exp-advanced">🌳 Advanced</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What are you looking for -->
+                <div class="form-section">
+                    <h3><i class="fas fa-search"></i> What You're Looking For</h3>
+                    <div class="form-group">
+                        <label>Select skills/roles you're looking for (select all that apply)</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_frontend" value="1">
+                                <span>Frontend</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_backend" value="1">
+                                <span>Backend</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_ml" value="1">
+                                <span>Machine Learning</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_ai" value="1">
+                                <span>AI</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_uiux" value="1">
+                                <span>UI/UX Design</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_data_analysis" value="1">
+                                <span>Data Analysis</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_mobile" value="1">
+                                <span>Mobile Development</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_cloud" value="1">
+                                <span>Cloud Computing</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_devops" value="1">
+                                <span>DevOps</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_database" value="1">
+                                <span>Database</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_cybersecurity" value="1">
+                                <span>Cybersecurity</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_iot" value="1">
+                                <span>IoT</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="looking_embedded" value="1">
+                                <span>Embedded Systems</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lookingFor">Describe your ideal teammate (optional)</label>
+                        <input type="text" id="lookingFor" name="lookingFor" placeholder="e.g., Frontend Developer, UI/UX Designer">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea id="bio" name="bio" placeholder="Tell others about yourself and what kind of projects you're interested in..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                Already have an account? <a href="/login">Log in here</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Avatar selection
+        document.querySelectorAll('.avatar-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.avatar-option').forEach(o => o.classList.remove('selected'));
+                option.classList.add('selected');
+                document.getElementById('avatar').value = option.dataset.avatar;
+            });
+        });
+
+        // Checkbox visual feedback
+        document.querySelectorAll('.checkbox-item input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                checkbox.parentElement.classList.toggle('checked', checkbox.checked);
+            });
+        });
+
+        // Form submission
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const errorMsg = document.getElementById('errorMessage');
+            const successMsg = document.getElementById('successMessage');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating Account...';
+            errorMsg.style.display = 'none';
+            successMsg.style.display = 'none';
+
+            try {
+                const form = e.target;
+                
+                // Build choices object
+                const choices = {};
+                form.querySelectorAll('input[name^="skill_"], input[name^="interest_"], input[name^="looking_"]').forEach(input => {
+                    choices[input.name] = input.checked;
+                });
+                
+                // Add experience
+                const experience = form.querySelector('input[name="experience"]:checked');
+                if (experience) {
+                    choices[`experience_${experience.value}`] = true;
+                }
+
+                const data = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    password: form.password.value,
+                    avatar: form.avatar.value,
+                    branch: form.branch.value,
+                    year: form.year.value,
+                    semester: form.semester.value,
+                    category: form.category.value,
+                    lookingFor: form.lookingFor.value,
+                    bio: form.bio.value,
+                    choices
+                };
+
+                const response = await fetch('/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                    credentials: 'include'
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    successMsg.textContent = 'Account created successfully! Redirecting...';
+                    successMsg.style.display = 'block';
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 1500);
+                } else {
+                    throw new Error(result.message || 'Registration failed');
+                }
+
+            } catch (err) {
+                errorMsg.textContent = err.message;
+                errorMsg.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-user-plus"></i> Create Account';
+            }
+        });
+    </script>
+</body>
+</html>
