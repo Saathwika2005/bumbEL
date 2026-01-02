@@ -1,216 +1,102 @@
-// Sample Student Profiles Data
-const studentProfiles = [
-    {
-        id: 1,
-        name: "Aisha Sharma",
-        avatar: "👩‍💻",
-        branch: "Computer Science & Engineering",
-        year: "3rd Year",
-        semester: "6th Sem",
-        skills: [
-            { name: "Python", category: "tech" },
-            { name: "Machine Learning", category: "tech" },
-            { name: "Data Analysis", category: "tech" },
-            { name: "TensorFlow", category: "tech" }
-        ],
-        lookingFor: "Frontend Developer, UI/UX Designer",
-        bio: "AI enthusiast working on predictive analytics projects. Looking for creative minds to build innovative ML solutions!",
-        interests: ["AI", "Data Science", "Research"]
-    },
-    {
-        id: 2,
-        name: "Rohan Patel",
-        avatar: "🎨",
-        branch: "Information Science & Engineering",
-        year: "2nd Year",
-        semester: "4th Sem",
-        skills: [
-            { name: "Figma", category: "design" },
-            { name: "Adobe XD", category: "design" },
-            { name: "UI/UX Design", category: "design" },
-            { name: "Prototyping", category: "design" }
-        ],
-        lookingFor: "Full-stack Developer, Backend Expert",
-        bio: "Design thinking advocate passionate about creating intuitive user experiences. Let's build something beautiful!",
-        interests: ["Design", "User Research", "Product Design"]
-    },
-    {
-        id: 3,
-        name: "Priya Menon",
-        avatar: "🚀",
-        branch: "Electronics & Communication",
-        year: "3rd Year",
-        semester: "5th Sem",
-        skills: [
-            { name: "IoT", category: "tech" },
-            { name: "Arduino", category: "tech" },
-            { name: "Embedded Systems", category: "tech" },
-            { name: "Circuit Design", category: "science" }
-        ],
-        lookingFor: "Software Developer, App Developer",
-        bio: "Hardware hacker building smart IoT solutions. Need software wizards to bring my ideas to life!",
-        interests: ["IoT", "Robotics", "Smart Devices"]
-    },
-    {
-        id: 4,
-        name: "Karthik Kumar",
-        avatar: "💼",
-        branch: "MBA",
-        year: "1st Year",
-        semester: "2nd Sem",
-        skills: [
-            { name: "Business Strategy", category: "business" },
-            { name: "Marketing", category: "business" },
-            { name: "Financial Analysis", category: "business" },
-            { name: "Market Research", category: "business" }
-        ],
-        lookingFor: "Tech Developers, Designers",
-        bio: "Business strategist with startup experience. Looking for tech talent to build viable products with market fit!",
-        interests: ["Startups", "Strategy", "Innovation"]
-    },
-    {
-        id: 5,
-        name: "Sneha Reddy",
-        avatar: "🔬",
-        branch: "Biotechnology",
-        year: "4th Year",
-        semester: "7th Sem",
-        skills: [
-            { name: "Research", category: "science" },
-            { name: "Data Analysis", category: "science" },
-            { name: "Lab Techniques", category: "science" },
-            { name: "Python", category: "tech" }
-        ],
-        lookingFor: "Data Scientists, Developers",
-        bio: "Biotech researcher interested in bioinformatics. Seeking tech collaborators for healthcare innovation projects!",
-        interests: ["Healthcare", "Bioinformatics", "Research"]
-    },
-    {
-        id: 6,
-        name: "Arjun Iyer",
-        avatar: "⚡",
-        branch: "Electrical & Electronics",
-        year: "3rd Year",
-        semester: "6th Sem",
-        skills: [
-            { name: "Power Systems", category: "science" },
-            { name: "Control Systems", category: "tech" },
-            { name: "MATLAB", category: "tech" },
-            { name: "Renewable Energy", category: "science" }
-        ],
-        lookingFor: "Software Engineers, IoT Developers",
-        bio: "Sustainable energy enthusiast working on smart grid solutions. Let's power the future together!",
-        interests: ["Clean Energy", "Automation", "Sustainability"]
-    },
-    {
-        id: 7,
-        name: "Divya Krishnan",
-        avatar: "📱",
-        branch: "Computer Science & Engineering",
-        year: "2nd Year",
-        semester: "4th Sem",
-        skills: [
-            { name: "React Native", category: "tech" },
-            { name: "Flutter", category: "tech" },
-            { name: "Mobile Development", category: "tech" },
-            { name: "Firebase", category: "tech" }
-        ],
-        lookingFor: "Backend Developers, Designers",
-        bio: "Mobile app developer passionate about creating seamless cross-platform experiences. Let's ship something awesome!",
-        interests: ["Mobile Apps", "Cross-platform", "UX"]
-    },
-    {
-        id: 8,
-        name: "Vikram Singh",
-        avatar: "🎮",
-        branch: "Computer Science & Engineering",
-        year: "3rd Year",
-        semester: "5th Sem",
-        skills: [
-            { name: "Unity", category: "tech" },
-            { name: "C#", category: "tech" },
-            { name: "Game Development", category: "tech" },
-            { name: "3D Modeling", category: "design" }
-        ],
-        lookingFor: "Game Designers, Artists",
-        bio: "Indie game developer creating immersive experiences. Need creative partners for my next gaming project!",
-        interests: ["Gaming", "VR/AR", "Animation"]
-    },
-    {
-        id: 9,
-        name: "Ananya Gupta",
-        avatar: "🌐",
-        branch: "Information Science & Engineering",
-        year: "4th Year",
-        semester: "8th Sem",
-        skills: [
-            { name: "Blockchain", category: "tech" },
-            { name: "Solidity", category: "tech" },
-            { name: "Web3", category: "tech" },
-            { name: "Smart Contracts", category: "tech" }
-        ],
-        lookingFor: "Full-stack Developers, Business Analysts",
-        bio: "Blockchain enthusiast exploring decentralized applications. Join me in building the future of web3!",
-        interests: ["Blockchain", "DeFi", "NFTs"]
-    },
-    {
-        id: 10,
-        name: "Rahul Nair",
-        avatar: "🤖",
-        branch: "Mechanical Engineering",
-        year: "3rd Year",
-        semester: "6th Sem",
-        skills: [
-            { name: "CAD", category: "design" },
-            { name: "3D Printing", category: "tech" },
-            { name: "Robotics", category: "tech" },
-            { name: "Automation", category: "tech" }
-        ],
-        lookingFor: "Programmers, Electronics Engineers",
-        bio: "Robotics enthusiast building autonomous systems. Need software and electronics experts to collaborate!",
-        interests: ["Robotics", "Automation", "Manufacturing"]
-    },
-    {
-        id: 11,
-        name: "Meera Joshi",
-        avatar: "📊",
-        branch: "Industrial Engineering",
-        year: "2nd Year",
-        semester: "4th Sem",
-        skills: [
-            { name: "Data Visualization", category: "tech" },
-            { name: "SQL", category: "tech" },
-            { name: "Excel", category: "business" },
-            { name: "Process Optimization", category: "business" }
-        ],
-        lookingFor: "Data Scientists, Developers",
-        bio: "Analytics nerd optimizing processes through data. Looking for tech partners to build analytics dashboards!",
-        interests: ["Analytics", "Operations", "Efficiency"]
-    },
-    {
-        id: 12,
-        name: "Siddharth Rao",
-        avatar: "🎯",
-        branch: "Computer Science & Engineering",
-        year: "3rd Year",
-        semester: "5th Sem",
-        skills: [
-            { name: "DevOps", category: "tech" },
-            { name: "Docker", category: "tech" },
-            { name: "Kubernetes", category: "tech" },
-            { name: "AWS", category: "tech" }
-        ],
-        lookingFor: "Full-stack Developers, Frontend Engineers",
-        bio: "Cloud infrastructure expert passionate about scalable systems. Let's build robust and reliable applications!",
-        interests: ["Cloud Computing", "DevOps", "Infrastructure"]
-    }
-];
+/**
+ * bumbEL Frontend Application
+ * Integrated with Backend API
+ */
 
+// =====================================================
+// API Service
+// =====================================================
+const API = {
+    baseUrl: '/api',
+
+    async request(endpoint, options = {}) {
+        const url = `${this.baseUrl}${endpoint}`;
+        const config = {
+            ...options,
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                ...options.headers
+            }
+        };
+
+        try {
+            const response = await fetch(url, config);
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Request failed');
+            }
+
+            return data;
+        } catch (err) {
+            console.error(`API Error [${endpoint}]:`, err);
+            throw err;
+        }
+    },
+
+    // Auth endpoints
+    async checkAuth() {
+        return this.request('/auth/me');
+    },
+
+    async login(email, password) {
+        return this.request('/auth/login', {
+            method: 'POST',
+            body: JSON.stringify({ email, password })
+        });
+    },
+
+    async logout() {
+        return this.request('/auth/logout', { method: 'POST' });
+    },
+
+    // Discover endpoints
+    async getDiscover(limit = 20) {
+        return this.request(`/discover?limit=${limit}`);
+    },
+
+    // Swipe endpoint
+    async swipe(targetId, direction) {
+        return this.request('/swipe', {
+            method: 'POST',
+            body: JSON.stringify({ targetId, direction })
+        });
+    },
+
+    // Matches endpoints
+    async getMatches() {
+        return this.request('/matches');
+    },
+
+    async getMatchCount() {
+        return this.request('/matches/count');
+    },
+
+    // Profile endpoints
+    async getProfile() {
+        return this.request('/profile');
+    },
+
+    async updateProfile(data) {
+        return this.request('/profile', {
+            method: 'PUT',
+            body: JSON.stringify(data)
+        });
+    }
+};
+
+// =====================================================
 // Application State
+// =====================================================
+let currentUser = null;
+let isAuthenticated = false;
+let profiles = [];
 let currentProfileIndex = 0;
 let matches = [];
 let currentFilter = 'tech';
 let currentChatUser = null;
+let swipedIds = new Set();
 let dragStartX = 0;
 let dragStartY = 0;
 let isDragging = false;
@@ -219,39 +105,79 @@ let userProfile = {
     branch: "Computer Science & Engineering",
     year: "3rd Year",
     semester: "6th Sem",
-    skills: [
-        { name: "JavaScript", category: "tech" },
-        { name: "React", category: "tech" },
-        { name: "Node.js", category: "tech" },
-        { name: "UI/UX", category: "design" },
-        { name: "Python", category: "tech" }
-    ],
-    lookingFor: "Backend Developer, ML Engineer, Designer",
-    bio: "Passionate about web development and creating innovative solutions. Looking for dedicated teammates for EL projects!",
-    interests: ["Web Development", "AI", "Mobile Apps"]
+    skills: [],
+    lookingFor: "",
+    bio: "",
+    interests: []
 };
 
-// Initialize App
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('App initializing...');
+// =====================================================
+// Initialization
+// =====================================================
+document.addEventListener('DOMContentLoaded', async () => {
+    console.log('bumbEL initializing...');
+    await checkAuthStatus();
     initializeApp();
     setupEventListeners();
-    loadProfiles();
-    console.log('Profiles loaded, check card stack');
+    await loadDiscoverFeed();
+    await loadMatches();
 });
 
+async function checkAuthStatus() {
+    try {
+        const data = await API.checkAuth();
+        currentUser = data.user;
+        isAuthenticated = true;
+        console.log('✓ Authenticated as:', currentUser.name);
+        showAuthenticatedUI();
+    } catch (err) {
+        console.log('Not authenticated, using offline mode');
+        isAuthenticated = false;
+        // Continue with offline/demo mode using static data
+    }
+}
+
+function showAuthenticatedUI() {
+    const profileBtn = document.querySelector('[data-view="profile"]');
+    if (profileBtn && currentUser) {
+        const icon = profileBtn.querySelector('.icon');
+        if (icon) {
+            icon.innerHTML = `<span style="font-size: 1.2rem;">${currentUser.avatar || '👤'}</span>`;
+        }
+    }
+
+    const nav = document.querySelector('.nav');
+    if (nav && !document.getElementById('logoutBtn')) {
+        const logoutBtn = document.createElement('button');
+        logoutBtn.id = 'logoutBtn';
+        logoutBtn.className = 'nav-btn';
+        logoutBtn.innerHTML = '<span class="icon"><i class="fas fa-sign-out-alt"></i></span><span>Logout</span>';
+        logoutBtn.addEventListener('click', handleLogout);
+        nav.appendChild(logoutBtn);
+    }
+}
+
+async function handleLogout() {
+    try {
+        await API.logout();
+        window.location.href = '/login';
+    } catch (err) {
+        console.error('Logout failed:', err);
+    }
+}
+
 function initializeApp() {
-    // Load saved matches from localStorage
+    // Load saved matches from localStorage (fallback)
     const savedMatches = localStorage.getItem('bumbELMatches');
-    if (savedMatches) {
+    if (savedMatches && !isAuthenticated) {
         matches = JSON.parse(savedMatches);
         updateMatchCount();
         renderMatches();
     }
 
-    // Load saved user profile from localStorage
+    // Load saved user profile from localStorage (fallback)
     const savedProfile = localStorage.getItem('bumbELUserProfile');
-    if (savedProfile) {
+    if (savedProfile && !isAuthenticated) {
         userProfile = JSON.parse(savedProfile);
         updateProfileDisplay();
     }
@@ -273,12 +199,12 @@ function setupEventListeners() {
 
     // Filter Chips
     document.querySelectorAll('.chip').forEach(chip => {
-        chip.addEventListener('click', (e) => {
+        chip.addEventListener('click', async (e) => {
             document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
             e.target.classList.add('active');
             currentFilter = e.target.dataset.filter;
             currentProfileIndex = 0;
-            loadProfiles();
+            await loadDiscoverFeed();
         });
     });
 
@@ -309,6 +235,9 @@ function setupEventListeners() {
             addSkill();
         }
     });
+
+    // Profile Logout Button
+    document.getElementById('profileLogoutBtn').addEventListener('click', handleLogout);
 }
 
 function switchView(viewName) {
@@ -327,38 +256,117 @@ function switchView(viewName) {
         document.getElementById('discoverView').classList.add('active-view');
     } else if (viewName === 'matches') {
         document.getElementById('matchesView').classList.add('active-view');
+        if (isAuthenticated) loadMatches();
         renderMatches();
     } else if (viewName === 'profile') {
         document.getElementById('profileView').classList.add('active-view');
+        if (isAuthenticated) loadProfileView();
     }
 }
 
-function loadProfiles() {
+// =====================================================
+// Load Discover Feed (API only)
+// =====================================================
+async function loadDiscoverFeed() {
     const cardStack = document.querySelector('.card-stack');
-    console.log('Card stack element:', cardStack);
+    if (!cardStack) return;
+
+    if (!isAuthenticated) {
+        cardStack.innerHTML = `
+            <div class="empty-state" style="text-align: center; padding: 2rem;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+                <h3>Please Login</h3>
+                <p style="color: var(--bumble-gray);">You need to be logged in to discover teammates!</p>
+                <a href="/login" style="display: inline-block; margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--bumble-yellow); border: none; border-radius: 10px; cursor: pointer; font-weight: 600; text-decoration: none; color: black;">
+                    Login
+                </a>
+            </div>
+        `;
+        return;
+    }
+
+    try {
+        cardStack.innerHTML = `
+            <div style="text-align: center; padding: 2rem; color: var(--bumble-gray);">
+                <i class="fas fa-spinner fa-spin" style="font-size: 2rem;"></i>
+                <p style="margin-top: 1rem;">Loading profiles...</p>
+            </div>
+        `;
+
+        const data = await API.getDiscover();
+        profiles = data.profiles || [];
+        swipedIds.clear();
+        currentProfileIndex = 0;
+        console.log(`Loaded ${profiles.length} profiles from API`);
+        filterAndDisplayProfiles();
+    } catch (err) {
+        console.error('Failed to load profiles:', err);
+        cardStack.innerHTML = `
+            <div class="empty-state" style="text-align: center; padding: 2rem;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+                <h3>Failed to load profiles</h3>
+                <p style="color: var(--bumble-gray);">${err.message || 'Please try again later'}</p>
+                <button onclick="loadDiscoverFeed()" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--bumble-yellow); border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
+                    Try Again
+                </button>
+            </div>
+        `;
+    }
+}
+
+async function loadMatches() {
+    if (!isAuthenticated) return;
+    try {
+        const data = await API.getMatches();
+        matches = data.matches?.map(m => m.user) || [];
+        updateMatchCount();
+        renderMatches();
+    } catch (err) {
+        console.error('Failed to load matches:', err);
+    }
+}
+
+async function loadProfileView() {
+    if (!isAuthenticated) return;
+    try {
+        const data = await API.getProfile();
+        if (data.profile) {
+            userProfile = data.profile;
+            updateProfileDisplay();
+        }
+    } catch (err) {
+        console.error('Failed to load profile:', err);
+    }
+}
+
+function filterAndDisplayProfiles() {
+    const cardStack = document.querySelector('.card-stack');
+    if (!cardStack) return;
+
+    let filteredProfiles = profiles.filter(profile => {
+        if (swipedIds.has(profile.id)) return false;
+        if (profile.category?.toLowerCase() === currentFilter) return true;
+        return profile.skills?.some(skill => skill.category?.toLowerCase() === currentFilter);
+    });
+
     cardStack.innerHTML = '';
 
-    let filteredProfiles = studentProfiles;
-    console.log('Total profiles:', studentProfiles.length);
-    
-    // Always filter by selected category
-    filteredProfiles = studentProfiles.filter(profile => 
-        profile.skills.some(skill => skill.category === currentFilter)
-    );
-
-    console.log('Filtered profiles:', filteredProfiles.length);
-
-    // Load only 1 profile at a time
-    const profileIndex = currentProfileIndex % filteredProfiles.length;
-    const profile = filteredProfiles[profileIndex];
-    
-    console.log('Loading profile:', profile?.name, 'matched:', matches.some(m => m.id === profile?.id));
-    
-    if (profile && !matches.some(m => m.id === profile.id)) {
-        createProfileCard(profile, 0);
+    if (filteredProfiles.length === 0) {
+        cardStack.innerHTML = `
+            <div class="empty-state" style="text-align: center; padding: 2rem;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
+                <h3>No more profiles</h3>
+                <p style="color: var(--bumble-gray);">Try a different category or check back later!</p>
+                <button onclick="loadDiscoverFeed()" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--bumble-yellow); border: none; border-radius: 10px; cursor: pointer; font-weight: 600;">
+                    Refresh Feed
+                </button>
+            </div>
+        `;
+        return;
     }
-    
-    console.log('Cards in stack:', document.querySelectorAll('.profile-card-item').length);
+
+    const profile = filteredProfiles[0];
+    createProfileCard(profile, 0);
 }
 
 function createProfileCard(profile, stackIndex) {
@@ -369,28 +377,29 @@ function createProfileCard(profile, stackIndex) {
     card.style.transform = `translateY(${stackIndex * 10}px) scale(${1 - stackIndex * 0.05})`;
     card.style.zIndex = 100 - stackIndex;
 
-    const skillsHTML = profile.skills.map(skill => 
-        `<span class="skill-tag ${skill.category}">${skill.name}</span>`
+    const skillsHTML = (profile.skills || []).map(skill => 
+        `<span class="skill-tag ${skill.category || 'tech'}">${skill.name}</span>`
     ).join('');
 
     card.innerHTML = `
-        <div class="card-avatar"><i class="fas fa-user-circle"></i></div>
+        <div class="card-avatar"><span style="font-size: 4rem;">${profile.avatar || '👤'}</span></div>
         <div class="card-info">
             <h3 class="card-name">${profile.name}</h3>
             <div class="card-meta">
                 <span class="meta-item"><i class="fas fa-book"></i> ${profile.branch}</span>
                 <span class="meta-item"><i class="fas fa-graduation-cap"></i> ${profile.year}</span>
-                <span class="meta-item"><i class="far fa-calendar"></i> ${profile.semester}</span>
+                <span class="meta-item"><i class="far fa-calendar"></i> ${profile.semester || ''}</span>
             </div>
         </div>
         <div class="card-section">
             <h4>Looking For</h4>
-            <p class="card-bio" style="color: var(--bumble-yellow); font-weight: 600;">${profile.lookingFor}</p>
+            <p class="card-bio" style="color: var(--bumble-yellow); font-weight: 600;">${profile.lookingFor || ''}</p>
         </div>
         <div class="card-section">
             <h4>About</h4>
-            <p class="card-bio">${profile.bio}</p>
+            <p class="card-bio">${profile.bio || ''}</p>
         </div>
+        ${skillsHTML ? `<div class="card-section"><h4>Skills</h4><div class="skills-list">${skillsHTML}</div></div>` : ''}
     `;
 
     // Add touch/mouse events for dragging
@@ -474,41 +483,117 @@ function animateCardSwipe(card, direction) {
     }, 500);
 }
 
+// Special animation for when it's a match!
+function animateMatchCard(card) {
+    // Card pulses and glows before flying away
+    card.style.transition = 'all 0.3s ease-out';
+    card.style.transform = 'scale(1.1)';
+    card.style.boxShadow = '0 0 40px rgba(255, 198, 41, 0.8), 0 0 80px rgba(255, 107, 107, 0.6)';
+    card.style.border = '3px solid #FFC629';
+    
+    // Add match glow overlay
+    const glowOverlay = document.createElement('div');
+    glowOverlay.className = 'match-glow-overlay';
+    glowOverlay.innerHTML = '<span style="font-size: 4rem;">💛</span>';
+    glowOverlay.style.cssText = `
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 198, 41, 0.3);
+        border-radius: inherit;
+        animation: pulse 0.5s ease-in-out;
+    `;
+    card.style.position = 'relative';
+    card.appendChild(glowOverlay);
+    
+    // Then fly up and fade
+    setTimeout(() => {
+        card.style.transition = 'all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+        card.style.transform = 'scale(0) rotate(720deg)';
+        card.style.opacity = '0';
+    }, 400);
+    
+    setTimeout(() => {
+        card.remove();
+    }, 1000);
+}
+
 function handleSwipe(action) {
     const cards = document.querySelectorAll('.profile-card-item');
     if (cards.length === 0) return;
 
     const topCard = cards[0];
     const profileId = parseInt(topCard.dataset.profileId);
-    const profile = studentProfiles.find(p => p.id === profileId);
+    const profile = profiles.find(p => p.id === profileId);
 
     if (!profile) return;
 
+    // Track swiped profile
+    swipedIds.add(profileId);
+
     // Animate swipe
-    if (action === 'like' || action === 'super') {
-        animateCardSwipe(topCard, 'like');
+    if (action === 'like' || action === 'super' || action === 'right') {
         
-        // Random match chance (70% for super, 40% for regular like)
-        const matchChance = action === 'super' ? 0.7 : 0.4;
-        if (Math.random() < matchChance) {
-            setTimeout(() => {
-                createMatch(profile);
-            }, 600);
+        if (isAuthenticated) {
+            // Send swipe to API first to check for match
+            const direction = action === 'super' ? 'super' : 'right';
+            API.swipe(profileId, direction).then(result => {
+                if (result.matched) {
+                    console.log('🎉 It\'s a match! Triggering celebration...');
+                    // Use special match animation
+                    animateMatchCard(topCard);
+                    loadMatches();
+                    // Show match notification with confetti after card animation
+                    setTimeout(() => {
+                        createMatch(profile);
+                    }, 500);
+                } else {
+                    // Normal swipe animation
+                    animateCardSwipe(topCard, 'like');
+                }
+            }).catch(err => {
+                console.error('Swipe failed:', err);
+                animateCardSwipe(topCard, 'like');
+            });
+        } else {
+            // Offline mode - animate immediately
+            animateCardSwipe(topCard, 'like');
+            // Offline mode - random match
+            const matchChance = action === 'super' ? 0.7 : 0.4;
+            if (Math.random() < matchChance) {
+                setTimeout(() => createMatch(profile), 600);
+            }
         }
     } else {
         animateCardSwipe(topCard, 'nope');
+        if (isAuthenticated) {
+            API.swipe(profileId, 'left').catch(err => console.error('Swipe failed:', err));
+        }
     }
 
     // Load next profile after animation
     setTimeout(() => {
         currentProfileIndex++;
-        loadProfiles();
+        if (isAuthenticated) {
+            filterAndDisplayProfiles();
+        } else {
+            loadProfiles();
+        }
     }, 300);
 }
 
 function createMatch(profile) {
+    console.log('createMatch called with profile:', profile?.name);
     // Check if already matched
-    if (matches.some(m => m.id === profile.id)) return;
+    if (matches.some(m => m.id === profile.id)) {
+        console.log('Already matched with this profile');
+        return;
+    }
 
     matches.push(profile);
     localStorage.setItem('bumbELMatches', JSON.stringify(matches));
@@ -517,14 +602,79 @@ function createMatch(profile) {
 }
 
 function showMatchNotification(profile) {
+    console.log('showMatchNotification called, launching confetti...');
     const notification = document.getElementById('matchNotification');
     const matchedAvatar = notification.querySelector('.matched-avatar');
     const matchedName = document.getElementById('matchedName');
     
-    matchedAvatar.innerHTML = '<i class="fas fa-user-circle"></i>';
+    matchedAvatar.innerHTML = `<span style="font-size: 4rem;">${profile.avatar || '👤'}</span>`;
     matchedName.textContent = profile.name;
     
     notification.classList.add('show');
+    
+    // 🎉 Confetti celebration!
+    launchConfetti();
+}
+
+function launchConfetti() {
+    // Check if confetti library is loaded
+    if (typeof confetti !== 'function') {
+        console.warn('Confetti library not loaded');
+        return;
+    }
+    
+    console.log('🎉 Launching confetti!');
+    
+    try {
+        // Configure confetti to use high z-index
+        const defaults = {
+            zIndex: 9999,
+            disableForReducedMotion: true
+        };
+        
+        // First burst - left side
+        confetti({
+            ...defaults,
+            particleCount: 100,
+            spread: 70,
+            origin: { x: 0.1, y: 0.6 },
+            colors: ['#FFC629', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4']
+        });
+        
+        // Second burst - right side
+        confetti({
+            ...defaults,
+            particleCount: 100,
+            spread: 70,
+            origin: { x: 0.9, y: 0.6 },
+            colors: ['#FFC629', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4']
+        });
+        
+        // Center burst after a delay
+        setTimeout(() => {
+            confetti({
+                ...defaults,
+                particleCount: 150,
+                spread: 100,
+                origin: { x: 0.5, y: 0.5 },
+                colors: ['#FFC629', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4']
+            });
+        }, 250);
+        
+        // More confetti
+        setTimeout(() => {
+            confetti({
+                ...defaults,
+                particleCount: 50,
+                spread: 60,
+                origin: { x: 0.5, y: 0.3 },
+                shapes: ['circle'],
+                colors: ['#FF6B6B', '#FFC629']
+            });
+        }, 400);
+    } catch (err) {
+        console.error('Confetti error:', err);
+    }
 }
 
 function closeMatchNotification() {
@@ -549,24 +699,30 @@ function renderMatches() {
         return;
     }
 
-    matchesGrid.innerHTML = matches.map((match, index) => `
-        <div class="match-card" data-match-index="${index}">
-            <button class="unmatch-btn" onclick="event.stopPropagation(); unmatchUser(${index});" title="Unmatch">
-                <i class="fas fa-times"></i>
-            </button>
-            <div onclick="openChat(${JSON.stringify(match).replace(/"/g, '&quot;')})" style="cursor: pointer;">
-                <div class="match-avatar">
-                    <i class="fas fa-user-circle"></i>
-                    <div class="match-status"></div>
+    matchesGrid.innerHTML = matches.map((match, index) => {
+        // Handle both API format (with user property) and local format
+        const user = match.user || match;
+        const skillsDisplay = (user.skills || []).slice(0, 2).map(s => s.name).join(', ');
+        
+        return `
+            <div class="match-card" data-match-index="${index}">
+                <button class="unmatch-btn" onclick="event.stopPropagation(); unmatchUser(${index});" title="Unmatch">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div onclick="openChat(${JSON.stringify(user).replace(/"/g, '&quot;')})" style="cursor: pointer;">
+                    <div class="match-avatar">
+                        <span style="font-size: 2rem;">${user.avatar || '👤'}</span>
+                        <div class="match-status"></div>
+                    </div>
+                    <h3 class="match-name">${user.name}</h3>
+                    <p class="match-preview">${user.branch || ''}</p>
+                    <p class="match-preview" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--bumble-yellow);">
+                        ${skillsDisplay}
+                    </p>
                 </div>
-                <h3 class="match-name">${match.name}</h3>
-                <p class="match-preview">${match.branch}</p>
-                <p class="match-preview" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--bumble-yellow);">
-                    ${match.skills.slice(0, 2).map(s => s.name).join(', ')}
-                </p>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function openChat(user) {
@@ -575,7 +731,7 @@ function openChat(user) {
     const chatAvatar = modal.querySelector('.chat-avatar');
     const chatName = modal.querySelector('.chat-name');
     
-    chatAvatar.innerHTML = '<i class="fas fa-user-circle"></i>';
+    chatAvatar.innerHTML = `<span style="font-size: 2rem;">${user.avatar || '👤'}</span>`;
     chatName.textContent = user.name;
     
     modal.classList.add('show');
@@ -676,17 +832,79 @@ console.log('bumbEL loaded! Start swiping to find your perfect EL teammates!');
 console.log('Tip: Use arrow keys - Left: Pass, Right: Like, Up: Super Like');
 
 // Profile Editing Functions
-function openEditProfile() {
+async function openEditProfile() {
     const modal = document.getElementById('editProfileModal');
+    
+    // Load fresh profile data if authenticated
+    if (isAuthenticated) {
+        try {
+            const data = await API.getProfile();
+            if (data.profile) {
+                userProfile = data.profile;
+            }
+        } catch (err) {
+            console.error('Failed to load profile for editing:', err);
+        }
+    }
     
     // Populate form with current profile data
     document.getElementById('editName').value = userProfile.name;
     document.getElementById('editBranch').value = userProfile.branch;
     document.getElementById('editYear').value = userProfile.year;
-    document.getElementById('editSemester').value = userProfile.semester;
-    document.getElementById('editLookingFor').value = userProfile.lookingFor;
-    document.getElementById('editBio').value = userProfile.bio;
-    document.getElementById('editInterests').value = userProfile.interests.join(', ');
+    document.getElementById('editSemester').value = userProfile.semester || '';
+    // Populate looking-for checkboxes (structured) if available
+    const editLookingInputs = document.querySelectorAll('#editLookingForGroup input[name^="looking_"]');
+    if (editLookingInputs) {
+        // Clear first
+        editLookingInputs.forEach(i => i.checked = false);
+
+        // Prefer structured choices from profile if available
+        if (userProfile.lookingForChoices && Array.isArray(userProfile.lookingForChoices)) {
+            // Map labels to keys
+            const labelToKey = {
+                'Web Development': 'looking_webdev',
+                'Frontend': 'looking_frontend',
+                'Backend': 'looking_backend',
+                'Machine Learning': 'looking_ml',
+                'AI': 'looking_ai',
+                'Data Analysis': 'looking_data_analysis',
+                'Mobile Development': 'looking_mobile',
+                'Cloud Computing': 'looking_cloud',
+                'DevOps': 'looking_devops',
+                'Database': 'looking_database',
+                'Cybersecurity': 'looking_cybersecurity',
+                'UI/UX Design': 'looking_uiux',
+                'Figma': 'looking_figma',
+                'IoT': 'looking_iot',
+                'Embedded Systems': 'looking_embedded'
+            };
+
+            userProfile.lookingForChoices.forEach(label => {
+                const key = labelToKey[label];
+                if (!key) return;
+                const el = document.querySelector(`#editLookingForGroup input[name="${key}"]`);
+                if (el) el.checked = true;
+            });
+            // Ensure visual checked state on parent labels
+            editLookingInputs.forEach(i => i.parentElement.classList.toggle('checked', !!i.checked));
+        } else {
+            // Fallback to the comma-separated string
+            const parts = (userProfile.lookingFor || '').split(',').map(s => s.trim()).filter(Boolean);
+            parts.forEach(part => {
+                // Try to find matching input by value/text
+                editLookingInputs.forEach(i => {
+                    const span = i.parentElement.querySelector('span');
+                    if (span && span.textContent.trim().toLowerCase() === part.toLowerCase()) {
+                        i.checked = true;
+                    }
+                    i.parentElement.classList.toggle('checked', !!i.checked);
+                });
+            });
+        }
+    }
+
+    document.getElementById('editBio').value = userProfile.bio || '';
+    document.getElementById('editInterests').value = (userProfile.interests || []).join(', ');
     
     // Populate skills
     renderSelectedSkills();
@@ -750,7 +968,7 @@ function renderSelectedSkills() {
     `).join('');
 }
 
-function saveProfile(e) {
+async function saveProfile(e) {
     e.preventDefault();
     
     // Get form values
@@ -758,13 +976,53 @@ function saveProfile(e) {
     userProfile.branch = document.getElementById('editBranch').value;
     userProfile.year = document.getElementById('editYear').value;
     userProfile.semester = document.getElementById('editSemester').value;
-    userProfile.lookingFor = document.getElementById('editLookingFor').value.trim();
+    
+    // Build lookingFor from checkboxes
+    const lookingForLabels = [];
+    document.querySelectorAll('#editLookingForGroup input[name^="looking_"]:checked').forEach(i => {
+        const span = i.parentElement.querySelector('span');
+        if (span) lookingForLabels.push(span.textContent.trim());
+    });
+    userProfile.lookingFor = lookingForLabels.join(', ');
+    
     userProfile.bio = document.getElementById('editBio').value.trim();
     
     const interestsInput = document.getElementById('editInterests').value.trim();
     userProfile.interests = interestsInput ? interestsInput.split(',').map(i => i.trim()) : [];
     
-    // Save to localStorage
+    if (isAuthenticated) {
+        try {
+            // Build choices object that preserves existing choices and updates looking_for flags
+            const updatedChoices = { ...(userProfile.choices || {}) };
+            document.querySelectorAll('#editLookingForGroup input[name^="looking_"]').forEach(i => {
+                updatedChoices[i.name] = i.checked;
+            });
+
+            await API.updateProfile({
+                name: userProfile.name,
+                branch: userProfile.branch,
+                year: userProfile.year,
+                semester: userProfile.semester,
+                lookingFor: userProfile.lookingFor,
+                bio: userProfile.bio,
+                choices: updatedChoices
+            });
+            // Refresh profile from server to pick up formatted lookingForChoices
+            try {
+                const latest = await API.getProfile();
+                if (latest?.profile) userProfile = latest.profile;
+            } catch (err) {
+                console.warn('Could not refresh profile after update:', err);
+            }
+            console.log('Profile saved to server');
+        } catch (err) {
+            console.error('Failed to save profile to server:', err);
+            alert('Failed to save profile. Please try again.');
+            return;
+        }
+    }
+    
+    // Save to localStorage (for offline mode)
     localStorage.setItem('bumbELUserProfile', JSON.stringify(userProfile));
     
     // Update profile display
@@ -780,7 +1038,9 @@ function saveProfile(e) {
 function updateProfileDisplay() {
     // Update profile view
     const profileCard = document.querySelector('.profile-card');
+    if (!profileCard) return;
     
+    const profileAvatar = profileCard.querySelector('.profile-avatar');
     const profileName = profileCard.querySelector('.profile-name');
     const profileBranch = profileCard.querySelector('.profile-branch');
     const profileYear = profileCard.querySelector('.profile-year');
@@ -788,18 +1048,26 @@ function updateProfileDisplay() {
     const lookingForContainer = profileCard.querySelector('.looking-for');
     const profileBio = profileCard.querySelector('.profile-bio');
     
+    if (profileAvatar) {
+        profileAvatar.innerHTML = `<span style="font-size: 4rem;">${userProfile.avatar || '👤'}</span>`;
+    }
     if (profileName) profileName.textContent = userProfile.name;
     if (profileBranch) profileBranch.textContent = userProfile.branch;
     if (profileYear) profileYear.textContent = userProfile.year;
     
-    if (skillsContainer) {
+    if (skillsContainer && userProfile.skills) {
         skillsContainer.innerHTML = userProfile.skills.map(skill => 
-            `<span class="skill-tag ${skill.category}">${skill.name}</span>`
+            `<span class="skill-tag ${skill.category || 'tech'}">${skill.name}</span>`
         ).join('');
     }
     
     if (lookingForContainer) {
-        const lookingForArray = userProfile.lookingFor.split(',').map(item => item.trim());
+        let lookingForArray = [];
+        if (Array.isArray(userProfile.lookingForChoices) && userProfile.lookingForChoices.length > 0) {
+            lookingForArray = userProfile.lookingForChoices;
+        } else if (userProfile.lookingFor) {
+            lookingForArray = userProfile.lookingFor.split(',').map(item => item.trim());
+        }
         lookingForContainer.innerHTML = lookingForArray.map(item => 
             `<span class="looking-tag">${item}</span>`
         ).join('');
@@ -807,3 +1075,6 @@ function updateProfileDisplay() {
     
     if (profileBio) profileBio.textContent = userProfile.bio;
 }
+
+// Make loadDiscoverFeed globally available for onclick
+window.loadDiscoverFeed = loadDiscoverFeed;
